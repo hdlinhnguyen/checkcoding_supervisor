@@ -5,7 +5,7 @@ using Plots
 function W(x, y, g, d, ϕ, α, c)
     p_1 = x + g * x * (1 - x) - d * (x - y) - ϕ * x - (α / 2) * x
     p_2 = y - d * (y - x) - (α / 2) * y
-    if x >= c/ϕ && y >= c/ϕ
+    if x >= c/ϕ 
         return 1 - p_1 - c + 0.3
     else 
         return 1 - p_1 + 0.3
