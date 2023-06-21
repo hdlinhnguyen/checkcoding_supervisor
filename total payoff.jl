@@ -49,6 +49,13 @@ s = 0.3 #subsidy or π^NCH
 x_vals = range(0, stop = 1, length = 100)
 y_vals = range(0, stop = 1, length = 100)
 
+z = zeros(length(x_vals), length(y_vals))
+for (i, x) in enumerate(x_vals)
+    for (j, y) in enumerate(y_vals)
+        z[i, j] = W(x, y, g, d, ϕ, c, α, s)
+    end
+end
+### double check matrix for me:
 z = [W(x, y, g, d, ϕ, c, α, s) for x in x_vals, y in y_vals]
 
 fig = heatmap(x_vals, y_vals, z, xlabel = "Pi", ylabel = "Pj",
