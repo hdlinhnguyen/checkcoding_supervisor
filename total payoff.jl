@@ -1,4 +1,16 @@
-using Plots
+using Plots, ColorSchemes
+
+g = 0.5
+d = 0.25
+c = 0.2
+ϕ = 0.4
+α = 0.25
+s = 0.3 #subsidy or π^NCH
+
+x_vals = range(0, stop = 1, length = 100)
+y_vals = range(0, stop = 1, length = 100)
+
+z = zeros(length(x_vals), length(y_vals))
 
 function W(x, y, g, d, ϕ, c, α, s)
     # C,C
@@ -43,17 +55,6 @@ function W(x, y, g, d, ϕ, c, α, s)
     end
 end
 
-g = 0.5
-d = 0.25
-c = 0.2
-ϕ = 0.4
-α = 0.25
-s = 0.3 #subsidy or π^NCH
-
-x_vals = range(0, stop = 1, length = 100)
-y_vals = range(0, stop = 1, length = 100)
-
-z = zeros(length(x_vals), length(y_vals))
 for (i, x) in enumerate(x_vals)
     for (j, y) in enumerate(y_vals)
         z[i, j] = W(x, y, g, d, ϕ, c, α, s)
