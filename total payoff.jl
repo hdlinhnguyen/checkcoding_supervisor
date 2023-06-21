@@ -36,6 +36,10 @@ function W(x, y, g, d, ϕ, c, α, s)
         p_1 = x + g * x * (1 - x) - d * (x - y) - ϕ*x - α*x
         p_2 = y + g * y * (1 - y) - d * (y - x) - ϕ*y 
         return 1 - p_1 - c + s
+        
+   # undetermined: take as weighted sum: ((P,NCH)+(NCH,P))/2
+   elseif x >= 0.79 && y >=0.79
+        return ((1 - p_1 - c + s) + (s + 1 - p_2 - c))/2
     end
 end
 
