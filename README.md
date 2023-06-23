@@ -1,1 +1,2 @@
-Hi! This is my draft for my internship and master thesis.
+Hi! This is my first draft for my internship preparation. 
+This is not official version though and temporily presented here.
