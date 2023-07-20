@@ -1,2 +1,1 @@
-Hi! This is my first draft for my internship preparation. 
-This is not official version though and temporily presented here.
+This is not official version of my work though and temporarily presented here.
