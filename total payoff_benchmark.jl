@@ -1,5 +1,6 @@
 using Plots
 using StatsPlots ## if need
+using ColorSchemes
 
 VT = zeros(Float64, 101, 101)
 g = 0.5
@@ -53,6 +54,12 @@ function f8(x, y)
     return s + (1 - p_2 - c)
 end
 
+function f9(x,y)
+    p_1 = x + g * x * (1 - x) - d * (x - y) - ϕ*x - α*x
+    p_2 = y + g * y * (1 - y) - d * (y - x) - ϕ*y - α*y
+    return ((1 - p_1 - c + s) + (s + 1 - p_2 - c))/2 ## do not know the actual weight so take average as perfect share
+
+###### Conditions from the comparison of subsidy (s) and crop profit with using pesticide:
 x = 0:0.01:1
 y = 0:0.01:1
 
@@ -104,6 +111,9 @@ for x in x_vals
 
         elseif (x >= c / ϕ) && (y >= c / ϕ) && (x >= condition_21(y)) && (y <= condition_11(x))
             VT[x_index, y_index] = f8(x, y)
+
+        elseif (x >= c / ϕ) && (y >= c / ϕ) && (x >= condition_21(y)) && (y >= condition_11(x))
+            VT[x_index, y_index] = f9(x, y)
         end
     end
 end
